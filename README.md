@@ -44,5 +44,7 @@ Plugin chatbot (neareo) for Magix CMS 3
 http://www.domain.tld/chatbot?collection=home
 http://www.domain.tld/chatbot?collection=pages&id=1
 
-les paramètres des URL peuvent être construit avec le data-pgid="{$neareoVar}" qui donnera ceci : data-pgid="pages_1" à utiliser comme ceci http://www.domain.tld/chatbot?collection=pages&id=1
+les paramètres des URL peuvent être construit avec le data-pgid="{$neareoVar}" 
+ce qui donnera ceci : data-pgid="pages_1" 
+à utiliser de cette manière http://www.domain.tld/chatbot?collection=pages&id=1
 ````
