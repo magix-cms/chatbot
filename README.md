@@ -39,7 +39,7 @@ Plugin chatbot (neareo) for Magix CMS 3
 <script src="https://neareo.com/js/bot.js?key=mykey{if $neareoScriptWithSubkey}-mysubkey{/if}" {if $neareoVar != NULL && $neareoScriptWithSubkey}data-pgid="{$neareoVar}"{/if} type="text/javascript" defer></script>
 ````
 
-##exemple d'URL :
+## exemple d'URL :
 ```text
 http://www.domain.tld/chatbot?collection=home
 http://www.domain.tld/chatbot?collection=pages&id=1
