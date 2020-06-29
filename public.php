@@ -3,7 +3,7 @@ class plugins_chatbot_public extends frontend_db_webservice
 {
 
     protected $data, $template, $collectionDomain, $modelDomain, $setBuildUrl, $curl, $ws, $header;
-    public $id, $retrieve,$collection;
+    public $id, $retrieve,$collection,$bot;
 
     public function __construct($t = null)
     {
@@ -20,6 +20,9 @@ class plugins_chatbot_public extends frontend_db_webservice
         }
         if (http_request::isGet('collection')) {
             $this->collection = $formClean->simpleClean($_GET['collection']);
+        }
+        if (http_request::isGet('bot')) {
+            $this->bot = $formClean->simpleClean($_GET['bot']);
         }
     }
     /**
@@ -132,10 +135,17 @@ class plugins_chatbot_public extends frontend_db_webservice
      */
     public function run(){
         if($this->ws->setMethod() === 'GET'){
-            if(isset($_GET)){
+            if(isset($this->bot)){
+                if(strpos($this->bot, '_') !== false){
+                    $data = explode("_", $this->bot);
+                    $newData = array('collection'=>$data[0],'id'=>$data[1]);
+                }else{
+                    $data = $this->bot;
+                    $newData = array('collection'=>$data);
+                }
                 $this->header->set_json_headers();
                 print json_encode(
-                    $this->getRequest($this->getConfig($_GET))
+                    $this->getRequest($this->getConfig($newData))
                 );
             }
         }
